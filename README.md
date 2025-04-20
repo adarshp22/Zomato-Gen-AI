@@ -16,11 +16,15 @@ A lightweight Retrieval-Augmented Generation (RAG) chatbot that answers question
 
 ## 🗂️ Project Structure
 
-├── main_app.py # Streamlit app interface ├── data/ │ └── restaurant_data.csv # Raw restaurant data (from Zomato scraping) ├── src/ │ ├── env_config.py # Constants and configuration │ ├── data_pipeline.py # Preprocessing logic │ ├── rag_generator.py # RAG orchestration logic │ └── vector_db.py # Semantic vector store and search └── README.md # You're here!
-
-yaml
-Copy
-Edit
+├── main_app.py                  # Streamlit app interface
+├── data/
+│   └── restaurant_data.csv      # Raw restaurant data (from Zomato scraping)
+├── src/
+│   ├── env_config.py            # Constants and configuration
+│   ├── data_pipeline.py         # Preprocessing logic
+│   ├── rag_generator.py         # RAG orchestration logic
+│   └── vector_db.py             # Semantic vector store and search
+└── README.md                    # You're here!
 
 ---
 
@@ -29,19 +33,6 @@ Edit
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/your-username/kanpur-restaurant-assistant.git
-cd kanpur-restaurant-assistant
-2. Create a Virtual Environment (Optional but Recommended)
-bash
-Copy
-Edit
-python -m venv .venv
-source .venv/bin/activate  # On Windows: .venv\Scripts\activate
-3. Install Requirements
-bash
-Copy
-Edit
-pip install -r requirements.txt
 Required Libraries:
 
 streamlit
@@ -81,11 +72,7 @@ streamlit run main_app.py
 Open http://localhost:8501 in your browser.
 
 💡 Example Queries
-"Which restaurants in Tilak Nagar have high ratings?"
-
-"What is the price range of Punjab Grill?"
-
-"Which restaurants serve North Indian cuisine?"
+"Which restaurants in Tilak Nagar Kanpur have high ratings?"
 
 ⚠️ Out-of-scope queries (e.g., contact info, opening hours, specific dishes) will be gracefully declined.
 
