@@ -16,15 +16,20 @@ A lightweight Retrieval-Augmented Generation (RAG) chatbot that answers question
 ## 🗂️ Project Structure
 
 Kanpur Restaurant Assistant/
+│
 ├── main_app.py                 # Streamlit app interface
+│
 ├── data/
 │   └── restaurant_data.csv     # Raw restaurant data (from Zomato scraping)
+│
 ├── src/
 │   ├── env_config.py           # Configuration file (API keys, model details)
 │   ├── data_pipeline.py        # Data processing and loading logic
 │   ├── rag_generator.py        # RAG orchestration and response generation
 │   └── vector_db.py            # Vector store and search logic
+│
 └── README.md                   # You're here!
+
 
 
 
