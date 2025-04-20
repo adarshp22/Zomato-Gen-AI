@@ -69,6 +69,9 @@ You can modify configurations like the model name, restaurant data file path, an
 - Add visual analytics (heatmaps, top cuisines, etc.)
 
 ---
+## DEMO VIDEO LINK
+ [demo_video](https://drive.google.com/file/d/1g1nrMgarzDeX1S4BBnr0SNFjPgwEO-He/view?usp=drive_link)
+---
 
 ## 🧑‍💻 Author
 
