@@ -16,91 +16,76 @@ A lightweight Retrieval-Augmented Generation (RAG) chatbot that answers question
 
 ## 🗂️ Project Structure
 
-├── main_app.py                  # Streamlit app interface
-├── data/
-│   └── restaurant_data.csv      # Raw restaurant data (from Zomato scraping)
-├── src/
-│   ├── env_config.py            # Constants and configuration
-│   ├── data_pipeline.py         # Preprocessing logic
-│   ├── rag_generator.py         # RAG orchestration logic
-│   └── vector_db.py             # Semantic vector store and search
-└── README.md                    # You're here!
+
+
 
 ---
 
 ## 🛠️ Setup Instructions
 
-### 1. Clone the Repository
+1. **Clone the Repository**  
+   Clone the project repository to your local machine.
 
-```bash
-Required Libraries:
+2. **Create a Virtual Environment (Optional but Recommended)**  
+   It's recommended to create a virtual environment to manage dependencies.
 
-streamlit
+3. **Install Requirements**  
+   Install the necessary libraries by running the following command:
 
-pandas
 
-sentence-transformers
+4. **Set Up the API Key**  
+Create a `.env` file to store your Groq API key or manually update it in the `src/env_config.py` file.
 
-groq
+---
 
-numpy
+## 🧪 Run the App
 
-You can also manually install:
+1. Run the following command to start the app:
 
-bash
-Copy
-Edit
-pip install streamlit pandas sentence-transformers groq numpy
-🔐 Set Groq API Key
-Create a .env file (or export manually):
 
-bash
-Copy
-Edit
-export GROQ_API_KEY=your_groq_api_key
-If you're hardcoding it (for now), you can pass it in rag_generator.py under:
+2. Open your browser and visit `http://localhost:8501` to interact with the Kanpur Restaurant Assistant chatbot.
 
-python
-Copy
-Edit
-Groq(api_key="your_key_here")
-🧪 Run the App
-bash
-Copy
-Edit
-streamlit run main_app.py
-Open http://localhost:8501 in your browser.
+---
 
-💡 Example Queries
-"Which restaurants in Tilak Nagar Kanpur have high ratings?"
+## 💡 Example Queries
 
-⚠️ Out-of-scope queries (e.g., contact info, opening hours, specific dishes) will be gracefully declined.
+- `"Which restaurants in Tilak Nagar have high ratings?"`
+- `"What is the price range of Punjab Grill?"`
+- `"Which restaurants serve North Indian cuisine?"`
 
-🧠 How It Works
-Data Loading: data_pipeline.py loads and preprocesses the CSV, extracting location and creating search_text.
+Note: Out-of-scope queries (e.g., contact info, opening hours, specific dishes) will be gracefully declined.
 
-Vector Embeddings: vector_db.py uses sentence-transformers to embed the search text.
+---
 
-Semantic Search: A similarity search returns the top-matching restaurants.
+## 🧠 How It Works
 
-LLM Generation: rag_generator.py formats context and sends it to Groq's LLaMA-3 for response generation.
+1. **Data Loading**: The data is loaded and preprocessed in `data_pipeline.py`.
+2. **Vector Embeddings**: The `vector_db.py` generates embeddings of the restaurant data using `sentence-transformers`.
+3. **Semantic Search**: The top-matching restaurants are fetched using vector similarity search.
+4. **LLM Generation**: The RAG pipeline in `rag_generator.py` formats the response and uses Groq's LLaMA-3 for response generation.
+5. **Chat UI**: The app is powered by Streamlit, providing an interactive user interface.
 
-Chat UI: main_app.py powers the Streamlit chatbot, with styled assistant and user messages.
+---
 
-📌 Configurable
-All core config (like model name, CSV path, system prompt) is located in src/env_config.py.
+## 📌 Configurable
 
-🧹 Future Improvements
-Add vector index persistence
+You can modify configurations like the model name, restaurant data file path, and system prompts in the `src/env_config.py` file.
 
-Add support for filtering by cuisine or price
+---
 
-Expand to more cities
+## 🧹 Future Improvements
 
-Add visual analytics (heatmaps, top cuisines, etc.)
+- Add vector index persistence
+- Add support for filtering by cuisine or price
+- Expand to more cities
+- Add visual analytics (heatmaps, top cuisines, etc.)
 
-🧑‍💻 Author
-Adarsh Pal
-💼 LinkedIn • 🧑‍💻 GitHub
+---
+
+## 🧑‍💻 Author
+
+**Adarsh Pal**  
+💼 [LinkedIn](https://linkedin.com/in/adarsh-pal-816764255) • 🧑‍💻 [GitHub](https://github.com/adarshp22)  
 📫 adarshp22@iitk.ac.in
 
+---
