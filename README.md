@@ -137,10 +137,3 @@ All core config (like model name, CSV path, system prompt) is located in `src/co
 
 ---
 
-## 📄 License
-
-MIT License — feel free to fork, clone, and customize!
-
---- 
-
-Let me know if you'd like to auto-generate a `requirements.txt` from your code!
