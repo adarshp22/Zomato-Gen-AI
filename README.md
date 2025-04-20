@@ -1,66 +1,100 @@
+# Kanpur Restaurant Information Assistant (Gen AI Project)
 
-# Kanpur Zomato AI Assistent
+This project is a RAG-based system built for the Zomato Gen AI Internship assignment. It enables users to query restaurant-related information using natural language. The system integrates web scraping, vector databases, and a custom retrieval mechanism with a lightweight LLM-powered chatbot interface.
 
-This project provides a semantic search-based Restaurant Assistant application built using the Retrieval-Augmented Generation (RAG) pipeline. It leverages advanced Natural Language Processing (NLP) techniques and a vector database to provide restaurant-related information for users in Kanpur, India. The application is powered by data scraped from Zomato and allows users to ask various restaurant-related queries.
+---
 
-## Features
+## 🚀 Features
 
-- **Restaurant Search**: Query information about restaurants based on various attributes such as ratings, price range, cuisines, and locations.
-- **RAG Pipeline**: Utilizes a combination of a vector database and a pre-trained model to retrieve contextually relevant information and generate responses.
-- **Streamlit Interface**: User-friendly chat interface built with Streamlit for real-time queries and responses.
-- **Customizable Model**: The application uses the `all-MiniLM-L6-v2` sentence transformer model for generating restaurant embeddings and performing semantic search.
+- Scrapes and structures restaurant data from Zomato for Kanpur.
+- Converts text chunks into vector embeddings using `HuggingFace`.
+- Stores embeddings in a FAISS vector database for efficient similarity search.
+- Implements a retrieval-augmented generation (RAG) approach to answer user queries.
+- Modular design for easy extension and future improvements.
 
+---
 
+## 🛠️ Setup Instructions
 
-## Requirements
-
-To run the application, ensure you have the following libraries installed:
-
-- `streamlit`
-- `pandas`
-- `numpy`
-- `sentence-transformers`
-- `groq`
-- `scikit-learn`
-
-You can install the necessary dependencies using `pip`:
+### 1. Clone the Repository
 
 ```bash
+git clone https://github.com/yourusername/kanpur-restaurant-assistant.git
+cd kanpur-restaurant-assistant
+2. Create a Virtual Environment
+bash
+Copy
+Edit
+python3 -m venv venv
+source venv/bin/activate  # For Windows: venv\Scripts\activate
+3. Install Dependencies
+bash
+Copy
+Edit
 pip install -r requirements.txt
-Setup
-Download Data: Ensure that the restaurant_data.csv file is located in the /data folder of the project.
+4. Configure Environment (if applicable)
+If using OpenAI or any API-based LLMs, set your API key in a .env file:
 
-Preprocessing: The data in the CSV file will be preprocessed automatically when the app starts. The preprocessing involves extracting restaurant location from the URL and creating a searchable text field.
-
-Initialize Vector DB: When the app starts, the RestaurantVectorDB class builds the vector database from the preprocessed data. It uses the SentenceTransformer model to generate embeddings for each restaurant based on its name, cuisine, rating, and price.
-
-Running the Application
-Run the Streamlit application by executing the following command:
+env
+Copy
+Edit
+OPENAI_API_KEY=your_key_here
+⚙️ Usage Instructions
+Step 1: Run Web Scraper
+Scrape Zomato for restaurant data in Kanpur.
 
 bash
 Copy
 Edit
-streamlit run src/app.py
-The app will open in your browser, where you can interact with the restaurant assistant. Type a query such as:
+python scraper.py
+Step 2: Generate Embeddings
+Convert restaurant info into embeddings and store in FAISS.
 
-"Which restaurants in Tilak Nagar have high ratings?"
+bash
+Copy
+Edit
+python embedder.py
+Step 3: Start the Assistant
+Launch the query assistant to interact with your chatbot.
 
-The application will respond based on the available restaurant data, returning the most relevant results.
+bash
+Copy
+Edit
+python query_assistant.py
+You’ll be prompted to enter a question like:
 
-RAG System Overview
-The system uses a Retrieval-Augmented Generation (RAG) pipeline, which operates in the following steps:
+arduino
+Copy
+Edit
+"Which restaurants in Kanpur offer North Indian food under ₹500?"
+And the assistant will return the most relevant information.
 
-Semantic Search: The query is converted into a vector embedding, and the vector database is searched for the most relevant entries (restaurants).
+📁 Project Structure
+bash
+Copy
+Edit
+kanpur-restaurant-assistant/
+│
+├── scraper.py               # Web scraping logic for Zomato Kanpur
+├── embedder.py              # Converts data into vector embeddings and stores in FAISS
+├── query_assistant.py       # Query interface powered by RAG
+├── utils/                   # Helper functions
+├── data/                    # Stores scraped raw and cleaned data
+├── faiss_index/             # FAISS index files
+├── requirements.txt         # Python dependencies
+└── README.md                # You are here!
+📌 Notes
+Designed to be lightweight for fast iteration.
 
-Context Formatting: The retrieved results are formatted and presented to the system in a manner that is compatible with the language model.
+Can easily swap embedding model (e.g., sentence-transformers) or LLM backend (e.g., OpenAI, LLama, etc.).
 
-Response Generation: The formatted context is then passed to the Groq model (mocked for now) to generate a response based on the available information.
+Only tested on Linux and MacOS. Windows users may need slight modifications to path formats.
 
-Customization
-You can customize various components of the application:
+🔮 Future Improvements
+Add user interface (web or CLI chatbot)
 
-Model: Modify the model used for embeddings by changing the EMBEDDING_MODEL parameter in the config.py file.
+Integrate with real-time Zomato API (if accessible)
 
-Prompt: Adjust the system prompt in config.py to change how the assistant behaves and what it can respond to.
+Improve retrieval accuracy using hybrid ranking
 
-Data: You can update the restaurant dataset in restaurant_data.csv to reflect new or more restaurant information.
+Extend coverage to other cities dynamically
