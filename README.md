@@ -13,29 +13,6 @@ A lightweight Retrieval-Augmented Generation (RAG) chatbot that answers question
 
 ---
 
-## 🗂️ Project Structure
-
-Kanpur Restaurant Assistant/
-│
-├── main_app.py                 # Streamlit app interface
-│
-├── data/
-│   └── restaurant_data.csv     # Raw restaurant data (from Zomato scraping)
-│
-├── src/
-│   ├── env_config.py           # Configuration file (API keys, model details)
-│   ├── data_pipeline.py        # Data processing and loading logic
-│   ├── rag_generator.py        # RAG orchestration and response generation
-│   └── vector_db.py            # Vector store and search logic
-│
-└── README.md                  
-- main_app.py (this is the desired interface)
-- |--src/
-- |   |- env_config
-
-
-
-
 ---
 
 ## 🛠️ Setup Instructions
@@ -55,7 +32,7 @@ Create a `.env` file to store your Groq API key or manually update it in the `sr
 
 ---
 
-## 🧪 Run the App
+## 🧪 Run the App that is main_app.py 
 
 1. Run the following command to start the app:
 
