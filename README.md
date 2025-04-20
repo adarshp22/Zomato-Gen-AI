@@ -1,16 +1,34 @@
-# Kanpur Restaurant Information Assistant (Gen AI Project)
 
-This project is a RAG-based system built for the Zomato Gen AI Internship assignment. It enables users to query restaurant-related information using natural language. The system integrates web scraping, vector databases, and a custom retrieval mechanism with a lightweight LLM-powered chatbot interface.
+
+# 🍽️ Kanpur Restaurant Assistant
+
+A lightweight Retrieval-Augmented Generation (RAG) chatbot that answers questions about restaurants in **Kanpur**, India — built using a semantic search system and integrated with LLM (Groq API using LLaMA-3).
 
 ---
 
 ## 🚀 Features
 
-- Scrapes and structures restaurant data from Zomato for Kanpur.
-- Converts text chunks into vector embeddings using `HuggingFace`.
-- Stores embeddings in a FAISS vector database for efficient similarity search.
-- Implements a retrieval-augmented generation (RAG) approach to answer user queries.
-- Modular design for easy extension and future improvements.
+- 🔎 Semantic search over restaurant data (ratings, price, cuisine, location)
+- 💬 Chat UI with a RAG pipeline (retrieval + generation)
+- 🧠 Uses `sentence-transformers` for vector similarity
+- 🤖 Powered by Groq's LLaMA-3 models for fast and reliable responses
+- 🎨 Zomato-style UI using Streamlit and custom CSS
+
+---
+
+## 🗂️ Project Structure
+
+```
+├── app.py                      # Streamlit app interface
+├── data/
+│   └── restaurant_data.csv     # Raw restaurant data (from Zomato scraping)
+├── src/
+│   ├── config.py               # Constants and configuration
+│   ├── data_loader.py          # Preprocessing logic
+│   ├── rag_pipeline.py         # RAG orchestration logic
+│   └── vector_db.py            # Semantic vector store and search
+└── README.md                   # You're here!
+```
 
 ---
 
@@ -19,82 +37,110 @@ This project is a RAG-based system built for the Zomato Gen AI Internship assign
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/yourusername/kanpur-restaurant-assistant.git
+git clone https://github.com/your-username/kanpur-restaurant-assistant.git
 cd kanpur-restaurant-assistant
-2. Create a Virtual Environment
-bash
-Copy
-Edit
-python3 -m venv venv
-source venv/bin/activate  # For Windows: venv\Scripts\activate
-3. Install Dependencies
-bash
-Copy
-Edit
+```
+
+### 2. Create a Virtual Environment (Optional but Recommended)
+
+```bash
+python -m venv .venv
+source .venv/bin/activate  # On Windows: .venv\Scripts\activate
+```
+
+### 3. Install Requirements
+
+```bash
 pip install -r requirements.txt
-4. Configure Environment (if applicable)
-If using OpenAI or any API-based LLMs, set your API key in a .env file:
+```
 
-env
-Copy
-Edit
-OPENAI_API_KEY=your_key_here
-⚙️ Usage Instructions
-Step 1: Run Web Scraper
-Scrape Zomato for restaurant data in Kanpur.
+**Required Libraries:**
+- `streamlit`
+- `pandas`
+- `sentence-transformers`
+- `groq`
+- `numpy`
 
-bash
-Copy
-Edit
-python scraper.py
-Step 2: Generate Embeddings
-Convert restaurant info into embeddings and store in FAISS.
+You can also manually install:
+```bash
+pip install streamlit pandas sentence-transformers groq numpy
+```
 
-bash
-Copy
-Edit
-python embedder.py
-Step 3: Start the Assistant
-Launch the query assistant to interact with your chatbot.
+---
 
-bash
-Copy
-Edit
-python query_assistant.py
-You’ll be prompted to enter a question like:
+## 🔐 Set Groq API Key
 
-arduino
-Copy
-Edit
-"Which restaurants in Kanpur offer North Indian food under ₹500?"
-And the assistant will return the most relevant information.
+Create a `.env` file (or export manually):
 
-📁 Project Structure
-bash
-Copy
-Edit
-kanpur-restaurant-assistant/
-│
-├── scraper.py               # Web scraping logic for Zomato Kanpur
-├── embedder.py              # Converts data into vector embeddings and stores in FAISS
-├── query_assistant.py       # Query interface powered by RAG
-├── utils/                   # Helper functions
-├── data/                    # Stores scraped raw and cleaned data
-├── faiss_index/             # FAISS index files
-├── requirements.txt         # Python dependencies
-└── README.md                # You are here!
-📌 Notes
-Designed to be lightweight for fast iteration.
+```bash
+export GROQ_API_KEY=your_groq_api_key
+```
 
-Can easily swap embedding model (e.g., sentence-transformers) or LLM backend (e.g., OpenAI, LLama, etc.).
+If you're hardcoding it (for now), you can pass it in `rag_pipeline.py` under:
 
-Only tested on Linux and MacOS. Windows users may need slight modifications to path formats.
+```python
+Groq(api_key="your_key_here")
+```
 
-🔮 Future Improvements
-Add user interface (web or CLI chatbot)
+---
 
-Integrate with real-time Zomato API (if accessible)
+## 🧪 Run the App
 
-Improve retrieval accuracy using hybrid ranking
+```bash
+streamlit run app.py
+```
 
-Extend coverage to other cities dynamically
+Open `http://localhost:8501` in your browser.
+
+---
+
+## 💡 Example Queries
+
+- `"Which restaurants in Tilak Nagar have high ratings?"`
+- `"What is the price range of Punjab Grill?"`
+- `"Which restaurants serve North Indian cuisine?"`
+
+⚠️ Out-of-scope queries (e.g., contact info, opening hours, specific dishes) will be gracefully declined.
+
+---
+
+## 🧠 How It Works
+
+1. **Data Loading**: `data_loader.py` loads and preprocesses the CSV, extracting location and creating `search_text`.
+2. **Vector Embeddings**: `vector_db.py` uses `sentence-transformers` to embed the search text.
+3. **Semantic Search**: A similarity search returns the top-matching restaurants.
+4. **LLM Generation**: `rag_pipeline.py` formats context and sends it to Groq's LLaMA-3 for response generation.
+5. **Chat UI**: `app.py` powers the Streamlit chatbot, with styled assistant and user messages.
+
+---
+
+## 📌 Configurable
+
+All core config (like model name, CSV path, system prompt) is located in `src/config.py`.
+
+---
+
+## 🧹 Future Improvements
+
+- Add vector index persistence
+- Add support for filtering by cuisine or price
+- Expand to more cities
+- Add visual analytics (heatmaps, top cuisines, etc.)
+
+---
+
+## 🧑‍💻 Author
+
+**Adarsh Pal**  
+💼 [LinkedIn](https://linkedin.com/in/adarsh-pal-816764255) • 🧑‍💻 [GitHub](https://github.com/adarshp22)  
+📫 adarshp22@iitk.ac.in
+
+---
+
+## 📄 License
+
+MIT License — feel free to fork, clone, and customize!
+
+--- 
+
+Let me know if you'd like to auto-generate a `requirements.txt` from your code!
