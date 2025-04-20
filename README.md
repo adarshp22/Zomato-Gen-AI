@@ -28,7 +28,10 @@ Kanpur Restaurant Assistant/
 │   ├── rag_generator.py        # RAG orchestration and response generation
 │   └── vector_db.py            # Vector store and search logic
 │
-└── README.md                   # You're here!
+└── README.md                  
+- main_app.py (this is the desired interface)
+- |--src/
+- |   |- env_config
 
 
 
