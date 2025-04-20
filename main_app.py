@@ -1,8 +1,5 @@
-# # File: app.py
+# # File: main_app.py
 
-
-
-# File: app.py
 import streamlit as st
 from src.data_pipeline import load_and_preprocess_data
 from src.vector_db import RestaurantVectorDB
