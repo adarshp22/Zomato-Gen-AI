@@ -20,14 +20,10 @@ A lightweight Retrieval-Augmented Generation (RAG) chatbot that answers question
 1. **Clone the Repository**  
    Clone the project repository to your local machine.
 
-2. **Create a Virtual Environment (Optional but Recommended)**  
-   It's recommended to create a virtual environment to manage dependencies.
-
-3. **Install Requirements**  
+2. **Install Requirements**  
    Install the necessary libraries by running the following command:
 
-
-4. **Set Up the API Key**  
+3. **Set Up the API Key**  
 Create a `.env` file to store your Groq API key or manually update it in the `src/env_config.py` file.
 
 ---
