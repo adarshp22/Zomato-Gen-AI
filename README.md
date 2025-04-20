@@ -10,9 +10,6 @@ This project provides a semantic search-based Restaurant Assistant application b
 - **Streamlit Interface**: User-friendly chat interface built with Streamlit for real-time queries and responses.
 - **Customizable Model**: The application uses the `all-MiniLM-L6-v2` sentence transformer model for generating restaurant embeddings and performing semantic search.
 
-## Folder Structure
-/Kanpur-Restaurant-Assistant ├── /src │ ├── /config.py # Configuration file for CSV path, model, and system prompt │ ├── /data_loader.py # Logic for loading and preprocessing the restaurant data │ ├── /rag_pipeline.py # Core RAG system for handling queries and generating responses │ ├── /vector_db.py # Vector database setup for semantic search │ └── /app.py # Streamlit app file for the user interface ├── /data │ └── restaurant_data.csv # The CSV file containing restaurant data └── README.md # Project overview and instructions
-
 
 
 ## Requirements
