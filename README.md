@@ -8,7 +8,6 @@ A lightweight Retrieval-Augmented Generation (RAG) chatbot that answers question
 
 - 🔎 Semantic search over restaurant data (ratings, price, cuisine, location)
 - 💬 Chat UI with a RAG pipeline (retrieval + generation)
-- 🧠 Uses `sentence-transformers` for vector similarity
 - 🤖 Powered by Groq's LLaMA-3 models for fast and reliable responses
 - 🎨 Zomato-style UI using Streamlit and custom CSS
 
@@ -16,6 +15,16 @@ A lightweight Retrieval-Augmented Generation (RAG) chatbot that answers question
 
 ## 🗂️ Project Structure
 
+Kanpur Restaurant Assistant/
+├── main_app.py                 # Streamlit app interface
+├── data/
+│   └── restaurant_data.csv     # Raw restaurant data (from Zomato scraping)
+├── src/
+│   ├── env_config.py           # Configuration file (API keys, model details)
+│   ├── data_pipeline.py        # Data processing and loading logic
+│   ├── rag_generator.py        # RAG orchestration and response generation
+│   └── vector_db.py            # Vector store and search logic
+└── README.md                   # You're here!
 
 
 
@@ -49,11 +58,9 @@ Create a `.env` file to store your Groq API key or manually update it in the `sr
 
 ## 💡 Example Queries
 
-- `"Which restaurants in Tilak Nagar have high ratings?"`
-- `"What is the price range of Punjab Grill?"`
-- `"Which restaurants serve North Indian cuisine?"`
+- `"Which restaurants in Tilak Nagar Kanpur have high ratings?"`
 
-Note: Out-of-scope queries (e.g., contact info, opening hours, specific dishes) will be gracefully declined.
+Note: Out-of-scope queries will be declined.
 
 ---
 
