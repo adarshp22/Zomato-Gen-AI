@@ -1,19 +1,5 @@
-1. Directory Structure
-arduino
-Copy
-Edit
-project-root/
-├── src/
-│   ├── __init__.py
-│   ├── data_loader.py
-│   ├── vector_db.py
-│   ├── rag_pipeline.py
-│   └── config.py
-├── app.py
-└── restaurant_data.csv  ← (your scraped data)
-└── README.md
 
-# Kanpur Restaurant Assistant
+# Kanpur Zomato AI Assistent
 
 This project provides a semantic search-based Restaurant Assistant application built using the Retrieval-Augmented Generation (RAG) pipeline. It leverages advanced Natural Language Processing (NLP) techniques and a vector database to provide restaurant-related information for users in Kanpur, India. The application is powered by data scraped from Zomato and allows users to ask various restaurant-related queries.
 
