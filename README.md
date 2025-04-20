@@ -1,33 +1,34 @@
-🍽️ Kanpur Restaurant Assistant
-A lightweight Retrieval-Augmented Generation (RAG) chatbot that answers questions about restaurants in Kanpur, India — built using a semantic search system and integrated with LLM (Groq API using LLaMA-3).
+# 🍽️ Kanpur Restaurant Assistant
 
-🚀 Features
-🔎 Semantic search over restaurant data (ratings, price, cuisine, location)
+A lightweight Retrieval-Augmented Generation (RAG) chatbot that answers questions about restaurants in **Kanpur**, India — built using a semantic search system and integrated with LLM (Groq API using LLaMA-3).
 
-💬 Chat UI with a RAG pipeline (retrieval + generation)
+---
 
-🤖 Powered by Groq's LLaMA-3 models for fast and reliable responses
+## 🚀 Features
 
-🎨 Zomato-style UI using Streamlit and custom CSS
+- 🔎 Semantic search over restaurant data (ratings, price, cuisine, location)
+- 💬 Chat UI with a RAG pipeline (retrieval + generation)
+- 🧠 Uses `sentence-transformers` for vector similarity
+- 🤖 Powered by Groq's LLaMA-3 models for fast and reliable responses
+- 🎨 Zomato-style UI using Streamlit and custom CSS
 
-🗂️ Project Structure
-bash
+---
+
+## 🗂️ Project Structure
+
+├── main_app.py # Streamlit app interface ├── data/ │ └── restaurant_data.csv # Raw restaurant data (from Zomato scraping) ├── src/ │ ├── env_config.py # Constants and configuration │ ├── data_pipeline.py # Preprocessing logic │ ├── rag_generator.py # RAG orchestration logic │ └── vector_db.py # Semantic vector store and search └── README.md # You're here!
+
+yaml
 Copy
 Edit
-├── main_app.py                  # Streamlit app interface
-├── data/
-│   └── restaurant_data.csv      # Raw restaurant data (from Zomato scraping)
-├── src/
-│   ├── env_config.py            # Constants and configuration
-│   ├── data_pipeline.py         # Preprocessing logic
-│   ├── rag_generator.py         # RAG orchestration logic
-│   └── vector_db.py             # Semantic vector store and search
-└── README.md                    # You're here!
-🛠️ Setup Instructions
-1. Clone the Repository
-bash
-Copy
-Edit
+
+---
+
+## 🛠️ Setup Instructions
+
+### 1. Clone the Repository
+
+```bash
 git clone https://github.com/your-username/kanpur-restaurant-assistant.git
 cd kanpur-restaurant-assistant
 2. Create a Virtual Environment (Optional but Recommended)
@@ -80,7 +81,11 @@ streamlit run main_app.py
 Open http://localhost:8501 in your browser.
 
 💡 Example Queries
-"Which restaurants in Tilak Nagar Kanpur have high ratings?"
+"Which restaurants in Tilak Nagar have high ratings?"
+
+"What is the price range of Punjab Grill?"
+
+"Which restaurants serve North Indian cuisine?"
 
 ⚠️ Out-of-scope queries (e.g., contact info, opening hours, specific dishes) will be gracefully declined.
 
