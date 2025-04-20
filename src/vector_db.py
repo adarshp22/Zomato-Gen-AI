@@ -14,7 +14,7 @@ class RestaurantVectorDB:
         self.metadata = df.to_dict('records')
         self.embeddings = self.model.encode(texts)
         
-    def search(self, query, top_k=3):
+    def search(self, query, top_k=4):
         """Semantic search implementation"""
         query_embed = self.model.encode(query)
         scores = np.dot(self.embeddings, query_embed)

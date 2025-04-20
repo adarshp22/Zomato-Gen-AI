@@ -1,4 +1,4 @@
-# File: src/rag_pipeline.py
+# File: src/rag_generator.py
 from typing import List, Dict
 import os
 from groq import Groq

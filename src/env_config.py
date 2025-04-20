@@ -1,4 +1,4 @@
-# File: src/config.py
+# File: src/env_config.py
 CSV_PATH = "data/restaurant_data.csv"
 SYSTEM_PROMPT = """
 You are a restaurant information assistant for Kanpur, India. You have access to data about restaurants including:

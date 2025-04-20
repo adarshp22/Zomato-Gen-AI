@@ -1,12 +1,13 @@
+# # File: app.py
 
 
 
 # File: app.py
 import streamlit as st
-from src.data_loader import load_and_preprocess_data
+from src.data_pipeline import load_and_preprocess_data
 from src.vector_db import RestaurantVectorDB
-from src.rag_pipeline import RAGSystem
-from src.config import CSV_PATH, SYSTEM_PROMPT, EMBEDDING_MODEL
+from src.rag_generator import RAGSystem
+from src.env_config import CSV_PATH, SYSTEM_PROMPT, EMBEDDING_MODEL
 
 # Custom CSS for consistent styling
 st.markdown("""
