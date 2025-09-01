@@ -37,7 +37,7 @@ class RAGSystem:
     
     def _mock_llm_call(self, query: str) -> str:
         client = Groq(
-            api_key="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",  # This is the default and can be omitted
+            api_key="",  # This is the default and can be omitted
         )
 
         chat_completion = client.chat.completions.create(
